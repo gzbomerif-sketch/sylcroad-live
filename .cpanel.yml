@@ -1,0 +1,30 @@
+---
+deployment:
+  tasks:
+    # Deploy React build files to public_html
+    - export DEPLOYPATH=/home/sylcdvaa/public_html/
+    - echo "Starting deployment to $DEPLOYPATH"
+    
+    # Copy main files
+    - /bin/cp -f index.html $DEPLOYPATH
+    - /bin/cp -f index.php $DEPLOYPATH
+    - /bin/cp -f asset-manifest.json $DEPLOYPATH
+    - /bin/cp -f vue.global.js $DEPLOYPATH
+    
+    # Copy static directory (React app)
+    - /bin/cp -R static $DEPLOYPATH
+    
+    # Copy app directory if exists
+    - if [ -d "app" ]; then /bin/cp -R app $DEPLOYPATH; fi
+    
+    # Copy nc_assets if exists
+    - if [ -d "nc_assets" ]; then /bin/cp -R nc_assets $DEPLOYPATH; fi
+    
+    # Set proper permissions
+    - /bin/chmod 644 $DEPLOYPATH/*.html
+    - /bin/chmod 644 $DEPLOYPATH/*.php
+    - /bin/chmod 644 $DEPLOYPATH/*.json
+    - /bin/chmod -R 755 $DEPLOYPATH/static
+    
+    - echo "Deployment completed successfully!"
+
