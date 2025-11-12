@@ -1,134 +1,234 @@
 ---
-name: "Landing Page Steal"
-description: "Copies an existing landing page (from URL or image) into a specified page in the codebase using Playwright MCP. Iteratively refines the implementation until it matches the reference design and interactions as closely as possible. Use when the user wants to copy/reference/steal an existing landing page/url to replicate in their app"
+name: "Shadcn UI Designer"
+description: "Designs modern, clean UI components and pages following Shadcn principles with minimalism, accessibility, and beautiful defaults. Use when building new UI components, redesigning pages, or creating consistent UI or simply wanting to use shadcn."
 version: "1.0.0"
-dependencies: ["playwright-mcp"]
-allowed-tools: ["playwright", "file_write", "file_read", "screenshot"]
+allowed-tools: ["file_write", "file_read", "shadcn"]
 ---
 
-# Landing Page Redesign
+# Shadcn UI Designer
 
-## Instructions
+## Core Design Prompt
 
-When requested to redesign a landing page based on a reference:
+When designing any UI, apply this philosophy:
 
-### 1. **User Interview**
-   - If not provided in the initial request, ask the user for:
-     - **Reference URL or Image**: The landing page or design to replicate (can be a live website URL or an image URL)
-     - **Target Page**: Which file in the codebase should receive the design (e.g., `app/(tabs)/index.tsx`, `app/landing.tsx`)
-   - If details are provided in the initial request, skip to step 2
+> "Design a modern, clean UI following Shadcn principles: apply minimalism with ample white space and simple sans-serif typography; use strategic, subtle shadows for depth and hierarchy; ensure accessibility with high-contrast neutrals and scalable elements; provide beautiful defaults for buttons, cards, and forms that compose modularly; incorporate fluid, non-intrusive animations; maintain a professional palette of soft grays, whites, and minimal accents like purple; output as responsive, customizable React code with Tailwind CSS."
 
-### 2. **Capture Reference Design**
-   - Use Playwright MCP to open the reference URL:
-     - Navigate to the page
-     - Take a full-page screenshot to understand structure
-     - Interact with the website, mouse hover, click around
-     - Analyze the page deeply
-   - Analyze the landing page/image for:
-     - Layout structure (header, hero, sections, footer)
-     - Interactive elements
-     - Color palette
-     - Typography (fonts, sizes, weights)
-     - Spacing and padding patterns
-     - UI components (buttons, cards, forms, etc.)
-     - Responsive design patterns
+## Design Rules
 
-### 3. **Implement the Design**
-   - Read the target page file to understand current structure
-   - Implement the design following these principles:
-     - **Match the layout**: Replicate section structure, grid layouts, flex patterns
-      - **Match the intractions**: Replicate mouse and button interactions, whether clicks or hovers - on key elements
-     - **Match colors**: Extract and use exact hex values from the reference
-     - **Match typography**: Use similar fonts (adjust to available system fonts or suggest font imports)
-     - **Match spacing**: Replicate padding, margins, and gaps
-     - **Match components**: Build equivalent React Native components for buttons, cards, inputs, etc.
-     - **Follow project patterns**: Use StyleSheet.create() as per CLAUDE.md guidelines
-     - **Mobile-first**: Ensure the design works on mobile (Expo/React Native)
-   - Write the implementation to the target file
+### 1. Typography Rule
+- Limit to **2-3 font weights and sizes** per screen
+- Use **Inter** or system fonts for consistency
+```tsx
+<h1 className="text-2xl font-semibold">Title</h1>
+<p className="text-sm text-muted-foreground">Description</p>
+```
 
-### 4. **Compare Implementations**
-   - If the reference is a live website:
-     - Take a screenshot of the implemented page
-     - Use Playwright to view your implementation
-   - Visually compare:
-     - Layout alignment and proportions
-     - Color accuracy
-     - Typography consistency
-     - Spacing and padding
-     - Component styling details
-   - Document differences found
+### 2. Spacing Rule
+- **4px-based scale**: 4px, 8px, 16px, 24px, 32px
+- Tailwind utilities: `p-1`, `p-2`, `p-4`, `p-6`, `p-8`
+```tsx
+<div className="p-6 space-y-4">
+  <div className="mb-8">...</div>
+</div>
+```
 
-### 5. **Iterate and Refine**
-   - Based on comparison, identify specific gaps:
-     - Layout issues (alignment, sizing, positioning)
-     - Color mismatches
-     - Typography differences
-     - Missing components or details
-     - Spacing inconsistencies
-   - Make targeted refinements to address each gap
-   - Repeat steps 4-5 until:
-     - The design matches as closely as technically possible
-     - All major visual elements are replicated
-     - User confirms satisfaction
-   - **Aim for 3-5 iterations** minimum to achieve high fidelity
+### 3. Color Rule
+- Base on **OKLCH** for perceptual uniformity
+- Use **50-950 scale grays** (background, foreground, muted)
+- **Subtle accents** at 10% opacity to avoid visual noise
+```tsx
+<Card className="bg-card text-card-foreground border-border">
+  <Button className="bg-primary text-primary-foreground">Action</Button>
+  <div className="bg-primary/10">Subtle accent</div>
+</Card>
+```
 
-### 6. **Final Review**
-   - Present the final implementation to the user
-   - Summarize what was matched and any intentional differences
-   - Suggest any follow-up improvements (e.g., animations, hover states, responsive tweaks)
+### 4. Shadow Rule
+- **3 levels only**:
+  - `shadow-sm`: Subtle lift (0 1px 2px) - for cards
+  - `shadow-md`: Medium depth (0 4px 6px) - for dropdowns
+  - `shadow-lg`: High elevation (0 10px 15px) - for modals
+```tsx
+<Card className="shadow-sm hover:shadow-md transition-shadow">
+```
+
+### 5. Animation Rule
+- **200-300ms durations**
+- **ease-in-out** curves for transitions
+- **Subtle feedback** only (hovers, state changes) - no decorative flourishes
+```tsx
+<Button className="transition-colors duration-200 hover:bg-primary/90">
+<Card className="transition-transform duration-200 hover:scale-105">
+```
+
+### 6. Accessibility Rule
+- **ARIA labels** on all interactive elements
+- **WCAG 2.1 AA** contrast ratios (4.5:1 minimum)
+- **Keyboard-focus styles** matching hover states
+- **Semantic HTML** structure
+```tsx
+<button
+  aria-label="Submit form"
+  className="focus:ring-2 focus:ring-primary focus:outline-none"
+>
+  Submit
+</button>
+```
+
+## Workflow
+
+### 1. Interview User (if details not provided)
+- **Scope**: Full page, section, or specific component?
+- **Type**: Dashboard, form, card, modal, table?
+- **Target file**: Where should this be implemented?
+- **Requirements**: Features, interactions, data to display?
+
+### 2. Design & Implement
+1. **Match existing design** - align with current UI patterns in the app
+2. **Build UI first** - complete visual interface before adding logic
+3. **Modular components** - break large pages into focused, reusable pieces
+4. **Apply all 6 rules** above strictly
+5. **Verify accessibility** - keyboard navigation, contrast, ARIA labels
+6. **Test responsiveness** - mobile, tablet, desktop
+
+### 3. Component Structure Pattern
+```tsx
+import { Button } from "@/components/ui/button"
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
+
+export function MyComponent() {
+  return (
+    <div className="container mx-auto p-6 space-y-6">
+      <header>
+        <h1 className="text-2xl font-semibold">Page Title</h1>
+      </header>
+
+      <main className="grid gap-4">
+        <Card className="shadow-sm">
+          <CardHeader>
+            <CardTitle>Section</CardTitle>
+          </CardHeader>
+          <CardContent>
+            {/* Content */}
+          </CardContent>
+        </Card>
+      </main>
+    </div>
+  )
+}
+```
+
+### 4. Quality Checklist
+Before completing, verify:
+- [ ] Uses shadcn/ui components where applicable
+- [ ] 2-3 font weights/sizes max per screen
+- [ ] 4px-based spacing throughout
+- [ ] Theme color variables (no hardcoded colors)
+- [ ] 3 shadow levels max, strategically applied
+- [ ] Animations 200-300ms with ease-in-out
+- [ ] ARIA labels on interactive elements
+- [ ] WCAG AA contrast ratios (4.5:1 min)
+- [ ] Keyboard focus styles implemented
+- [ ] Mobile-first responsive design
+- [ ] Modular, reusable code structure
+
+## Common Patterns
+
+### Dashboard Page
+```tsx
+<div className="container mx-auto p-6 space-y-6">
+  <header className="space-y-2">
+    <h1 className="text-2xl font-semibold">Dashboard</h1>
+    <p className="text-sm text-muted-foreground">Overview of metrics</p>
+  </header>
+
+  <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+    {stats.map(stat => (
+      <Card key={stat.id} className="shadow-sm">
+        <CardHeader className="pb-2">
+          <CardTitle className="text-sm font-medium text-muted-foreground">
+            {stat.title}
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="text-2xl font-semibold">{stat.value}</div>
+        </CardContent>
+      </Card>
+    ))}
+  </div>
+</div>
+```
+
+### Form Pattern
+```tsx
+<form className="space-y-6">
+  <div className="space-y-4">
+    <div className="space-y-2">
+      <Label htmlFor="name">Full Name</Label>
+      <Input id="name" placeholder="John Doe" />
+    </div>
+    <div className="space-y-2">
+      <Label htmlFor="email">Email</Label>
+      <Input id="email" type="email" placeholder="john@example.com" />
+    </div>
+  </div>
+  <Button type="submit" className="w-full transition-colors duration-200">
+    Submit
+  </Button>
+</form>
+```
+
+### Data Table Pattern
+```tsx
+<Card className="shadow-sm">
+  <CardHeader>
+    <CardTitle className="text-xl font-semibold">Recent Orders</CardTitle>
+  </CardHeader>
+  <CardContent>
+    <Table>
+      <TableHeader>
+        <TableRow>
+          <TableHead>Order ID</TableHead>
+          <TableHead>Customer</TableHead>
+          <TableHead>Status</TableHead>
+        </TableRow>
+      </TableHeader>
+      <TableBody>
+        {orders.map(order => (
+          <TableRow key={order.id} className="hover:bg-muted/50 transition-colors">
+            <TableCell className="font-medium">{order.id}</TableCell>
+            <TableCell>{order.customer}</TableCell>
+            <TableCell>
+              <Badge variant="default">{order.status}</Badge>
+            </TableCell>
+          </TableRow>
+        ))}
+      </TableBody>
+    </Table>
+  </CardContent>
+</Card>
+```
 
 ## Best Practices
 
-- **Be detail-oriented**: Small differences in spacing, colors, or typography can break the visual consistency
-- **Extract exact values**: Use color pickers and measurement tools to get precise values from screenshots
-- **Component reusability**: Extract repeated patterns into reusable components
-- **Maintain project standards**: Follow the StyleSheet.create() pattern and existing architecture
-- **Document trade-offs**: If React Native limitations prevent exact replication, document why
+- **Match existing design** - new designs align with current UI screens and components
+- **UI-first approach** - complete visual interface before adding business logic
+- **Modular code** - small, focused, reusable components (avoid monolithic pages)
+- **Token efficiency** - concise, well-structured code
+- **Consistency** - follow existing color, spacing, and typography patterns
+- **Composability** - build with shadcn's philosophy of small components that work together
 
-## Example Flow
+## Common Shadcn Components
 
-**User request:** "Make our landing page look like https://stripe.com/payments"
-
-1. **Interview**: Ask "Which file should receive this design?" → User: "app/(tabs)/index.tsx"
-2. **Capture**:
-   - Navigate to stripe.com/payments
-   - Take full-page screenshot
-   - Analyze deeply: Dark theme, gradient hero, feature grid, clean typography, button changes color upon hover/click
-3. **Implement**:
-   - Read app/(tabs)/index.tsx
-   - Build based on reference
-4. **Compare**:
-   - Screenshot shows hero gradient is lighter than reference
-   - Button border-radius is too sharp
-   - Font weights don't match
-   - Button doesn't change upon hover
-5. **Iterate**:
-   - Adjust gradient colors to match
-   - Reduce border-radius on buttons
-   - Increase font weights
-   - button changes upon hover/click
-   - Re-compare
-6. **Iterate again**:
-   - Fine-tune spacing between sections
-   - Adjust icon sizes
-   - Match exact color values
-7. **Final review**: Present to user with summary of matched elements
-
-## Technical Notes
-
-- **React Native considerations**:
-  - Web fonts may need to be loaded via expo-font or google fonts
-  - Some web-specific effects (box-shadow) have React Native equivalents (shadowColor, shadowOffset)
-  - Use Dimensions API for responsive layouts
-
-- **Iteration targets**:
-  - First iteration: Overall layout and structure
-  - Second iteration: Colors and typography
-  - Third iteration: Spacing and sizing refinement
-  - Fourth+ iterations: Fine details and polish
+- **Layout**: Card, Tabs, Sheet, Dialog, Popover
+- **Forms**: Input, Textarea, Select, Checkbox, Radio, Switch, Label
+- **Buttons**: Button, Toggle, ToggleGroup
+- **Display**: Badge, Avatar, Separator, Skeleton, Table
+- **Feedback**: Alert, Toast, Progress
+- **Navigation**: NavigationMenu, Dropdown, Command
 
 ## References
 
-- [Playwright MCP Documentation](https://github.com/executeautomation/mcp-playwright)
-- [Expo Style Guide](https://docs.expo.dev/develop/user-interface/style/)
-- [React Native StyleSheet](https://reactnative.dev/docs/stylesheet)
+- [Shadcn UI](https://ui.shadcn.com)
+- [Tailwind CSS v4](https://tailwindcss.com)
+- [WCAG 2.1](https://www.w3.org/WAI/WCAG21/quickref/)
