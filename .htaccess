@@ -16,11 +16,11 @@ SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1
 RewriteCond %{REQUEST_URI} ^/api/
 RewriteRule ^api/(.*)$ api/$1 [L]
 
-# React App - Serve index.html for all non-file requests
+# Route all non-file, non-API requests through router.php for clean URLs
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_URI} !^/api/
-RewriteRule ^(.*)$ index.html [L]
+RewriteRule ^(.*)$ router.php [QSA,L]
 
 # Security: Prevent directory listing
 Options -Indexes
