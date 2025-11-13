@@ -10,21 +10,30 @@ deployment:
     - /bin/cp -f index.php $DEPLOYPATH
     - /bin/cp -f asset-manifest.json $DEPLOYPATH
     - /bin/cp -f vue.global.js $DEPLOYPATH
-    
+    - /bin/cp -f .htaccess $DEPLOYPATH
+
     # Copy static directory (React app)
     - /bin/cp -R static $DEPLOYPATH
-    
+
+    # Copy API directory (Backend authentication)
+    - /bin/cp -R api $DEPLOYPATH
+
     # Copy app directory if exists
     - if [ -d "app" ]; then /bin/cp -R app $DEPLOYPATH; fi
-    
+
     # Copy nc_assets if exists
     - if [ -d "nc_assets" ]; then /bin/cp -R nc_assets $DEPLOYPATH; fi
-    
+
     # Set proper permissions
     - /bin/chmod 644 $DEPLOYPATH/*.html
     - /bin/chmod 644 $DEPLOYPATH/*.php
     - /bin/chmod 644 $DEPLOYPATH/*.json
+    - /bin/chmod 644 $DEPLOYPATH/.htaccess
     - /bin/chmod -R 755 $DEPLOYPATH/static
+    - /bin/chmod -R 755 $DEPLOYPATH/api
+    - /bin/chmod 644 $DEPLOYPATH/api/.htaccess
+    - /bin/chmod 644 $DEPLOYPATH/api/config.php
+    - /bin/chmod 755 $DEPLOYPATH/api/auth
     
     - echo "Deployment completed successfully!"
 
