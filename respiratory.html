@@ -1,0 +1,1689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Respiratory System Study Guide | Sylcroad</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #4cd137 0%, #44a832 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 3em;
+            font-weight: 800;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+
+        .nav-tabs {
+            display: flex;
+            background: #f8f9fa;
+            border-bottom: 2px solid #e9ecef;
+            overflow-x: auto;
+        }
+
+        .nav-tab {
+            padding: 15px 30px;
+            cursor: pointer;
+            border: none;
+            background: transparent;
+            font-family: 'Inter', sans-serif;
+            font-size: 1em;
+            font-weight: 600;
+            color: #495057;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .nav-tab:hover {
+            background: #e9ecef;
+        }
+
+        .nav-tab.active {
+            background: white;
+            color: #4cd137;
+            border-bottom: 3px solid #4cd137;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            color: #4cd137;
+            font-size: 2em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #4cd137;
+        }
+
+        .section h3 {
+            color: #44a832;
+            font-size: 1.5em;
+            margin: 25px 0 15px 0;
+        }
+
+        .section h4 {
+            color: #495057;
+            font-size: 1.2em;
+            margin: 20px 0 10px 0;
+            font-weight: 600;
+        }
+
+        .section p {
+            color: #495057;
+            margin-bottom: 15px;
+            font-size: 1.05em;
+        }
+
+        .section ul, .section ol {
+            margin-left: 30px;
+            margin-bottom: 15px;
+            color: #495057;
+        }
+
+        .section li {
+            margin-bottom: 10px;
+            line-height: 1.8;
+        }
+
+        .highlight-box {
+            background: #e8f8f5;
+            border-left: 5px solid #4cd137;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .highlight-box h4 {
+            color: #4cd137;
+            margin-top: 0;
+        }
+
+        .info-box {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .info-box h4 {
+            color: #856404;
+            margin-top: 0;
+        }
+
+        .warning-box {
+            background: #f8d7da;
+            border-left: 5px solid #dc3545;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .warning-box h4 {
+            color: #721c24;
+            margin-top: 0;
+        }
+
+        .anatomy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .anatomy-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .anatomy-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .anatomy-card h4 {
+            color: white;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+
+        .anatomy-card p {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 0.95em;
+        }
+
+        .process-flow {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+
+        .process-step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .step-number {
+            background: #4cd137;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2em;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .step-content {
+            flex: 1;
+        }
+
+        .step-content h4 {
+            margin: 0 0 5px 0;
+            color: #4cd137;
+        }
+
+        .step-content p {
+            margin: 0;
+            color: #495057;
+        }
+
+        .quiz-container {
+            margin-top: 30px;
+        }
+
+        .quiz-question {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .quiz-question h4 {
+            color: #4cd137;
+            margin-bottom: 15px;
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .quiz-option {
+            padding: 15px;
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .quiz-option:hover {
+            border-color: #4cd137;
+            background: #e8f8f5;
+        }
+
+        .quiz-option.selected {
+            border-color: #4cd137;
+            background: #e8f8f5;
+        }
+
+        .quiz-option.correct {
+            border-color: #28a745;
+            background: #d4edda;
+        }
+
+        .quiz-option.incorrect {
+            border-color: #dc3545;
+            background: #f8d7da;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #4cd137 0%, #44a832 100%);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(76, 209, 55, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(76, 209, 55, 0.4);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .quiz-result {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: 600;
+            display: none;
+        }
+
+        .quiz-result.show {
+            display: block;
+        }
+
+        .quiz-result.correct {
+            background: #d4edda;
+            color: #155724;
+            border: 2px solid #28a745;
+        }
+
+        .quiz-result.incorrect {
+            background: #f8d7da;
+            color: #721c24;
+            border: 2px solid #dc3545;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .data-table th {
+            background: #4cd137;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .data-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .data-table tr:hover {
+            background: #f8f9fa;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .nav-tab {
+                padding: 12px 20px;
+                font-size: 0.9em;
+            }
+
+            .anatomy-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🫁 Respiratory System Study Guide</h1>
+            <p>Master the anatomy, physiology, and functions of the respiratory system</p>
+        </div>
+
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="showTab('overview')">Overview</button>
+            <button class="nav-tab" onclick="showTab('anatomy')">Anatomy</button>
+            <button class="nav-tab" onclick="showTab('physiology')">Physiology</button>
+            <button class="nav-tab" onclick="showTab('gas-exchange')">Gas Exchange</button>
+            <button class="nav-tab" onclick="showTab('conditions')">Conditions</button>
+            <button class="nav-tab" onclick="showTab('quiz')">Quiz</button>
+        </div>
+
+        <div class="content">
+            <!-- OVERVIEW TAB -->
+            <div id="overview" class="tab-content active">
+                <div class="section">
+                    <h2>Introduction to the Respiratory System</h2>
+                    <p>The respiratory system is a complex biological system responsible for the exchange of gases between the body and the environment. Its primary function is to supply oxygen to the bloodstream and remove carbon dioxide, a metabolic waste product.</p>
+
+                    <div class="highlight-box">
+                        <h4>Primary Functions</h4>
+                        <ul>
+                            <li><strong>Gas Exchange:</strong> Oxygen intake and carbon dioxide removal</li>
+                            <li><strong>pH Regulation:</strong> Maintains blood pH by regulating CO₂ levels</li>
+                            <li><strong>Voice Production:</strong> Air passing through the larynx enables speech</li>
+                            <li><strong>Smell Detection:</strong> Olfactory receptors in the nasal cavity</li>
+                            <li><strong>Protection:</strong> Filters, warms, and humidifies incoming air</li>
+                            <li><strong>Immune Defense:</strong> Removes pathogens and particles from air</li>
+                        </ul>
+                    </div>
+
+                    <h3>System Components Overview</h3>
+                    <p>The respiratory system consists of two main divisions:</p>
+
+                    <div class="anatomy-grid">
+                        <div class="anatomy-card">
+                            <h4>Upper Respiratory Tract</h4>
+                            <p><strong>Components:</strong> Nose, nasal cavity, pharynx, and larynx</p>
+                            <p><strong>Function:</strong> Filters, warms, and moistens incoming air; provides initial immune defense</p>
+                        </div>
+                        <div class="anatomy-card">
+                            <h4>Lower Respiratory Tract</h4>
+                            <p><strong>Components:</strong> Trachea, bronchi, bronchioles, and lungs (alveoli)</p>
+                            <p><strong>Function:</strong> Conducts air to gas exchange surfaces; performs actual gas exchange</p>
+                        </div>
+                    </div>
+
+                    <h3>Key Statistics</h3>
+                    <table class="data-table">
+                        <tr>
+                            <th>Measurement</th>
+                            <th>Value</th>
+                        </tr>
+                        <tr>
+                            <td>Breathing rate (adult at rest)</td>
+                            <td>12-20 breaths per minute</td>
+                        </tr>
+                        <tr>
+                            <td>Tidal volume (normal breath)</td>
+                            <td>~500 mL</td>
+                        </tr>
+                        <tr>
+                            <td>Total lung capacity</td>
+                            <td>~6 liters (varies by size/sex)</td>
+                        </tr>
+                        <tr>
+                            <td>Number of alveoli</td>
+                            <td>~300-500 million</td>
+                        </tr>
+                        <tr>
+                            <td>Surface area for gas exchange</td>
+                            <td>~70 m² (tennis court size)</td>
+                        </tr>
+                        <tr>
+                            <td>Air flow velocity in alveoli</td>
+                            <td>Nearly zero (optimal for diffusion)</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- ANATOMY TAB -->
+            <div id="anatomy" class="tab-content">
+                <div class="section">
+                    <h2>Detailed Anatomy of the Respiratory System</h2>
+
+                    <h3>1. The Nose and Nasal Cavity</h3>
+                    <p>The nose serves as the primary entrance for air into the respiratory system.</p>
+
+                    <h4>External Nose</h4>
+                    <ul>
+                        <li><strong>Bridge:</strong> Superior portion formed by nasal bones</li>
+                        <li><strong>Nostrils (Nares):</strong> External openings for air entry</li>
+                        <li><strong>Nasal Septum:</strong> Divides the nose into left and right cavities</li>
+                    </ul>
+
+                    <h4>Nasal Cavity Features</h4>
+                    <ul>
+                        <li><strong>Conchae (Turbinates):</strong> Three shelf-like structures (superior, middle, inferior) that increase surface area</li>
+                        <li><strong>Olfactory Epithelium:</strong> Located in superior region; contains smell receptors</li>
+                        <li><strong>Respiratory Mucosa:</strong> Pseudostratified ciliated columnar epithelium with goblet cells</li>
+                        <li><strong>Rich Blood Supply:</strong> Warms incoming air to body temperature</li>
+                        <li><strong>Mucus Production:</strong> Traps particles and moistens air</li>
+                    </ul>
+
+                    <div class="highlight-box">
+                        <h4>Clinical Note: Nasal Function</h4>
+                        <p>The nasal cavity can warm air from -40°F to 98.6°F in less than a second and humidify it to 75-80% humidity. The conchae create turbulent airflow, maximizing contact time with the mucosa.</p>
+                    </div>
+
+                    <h3>2. The Pharynx (Throat)</h3>
+                    <p>A muscular tube approximately 13 cm long that serves both respiratory and digestive systems.</p>
+
+                    <h4>Three Regions:</h4>
+                    <ul>
+                        <li><strong>Nasopharynx:</strong>
+                            <ul>
+                                <li>Posterior to nasal cavity</li>
+                                <li>Contains pharyngeal tonsil (adenoids)</li>
+                                <li>Opening to auditory (Eustachian) tubes</li>
+                                <li>Respiratory function only</li>
+                            </ul>
+                        </li>
+                        <li><strong>Oropharynx:</strong>
+                            <ul>
+                                <li>Posterior to oral cavity</li>
+                                <li>Contains palatine and lingual tonsils</li>
+                                <li>Passageway for both air and food</li>
+                            </ul>
+                        </li>
+                        <li><strong>Laryngopharynx:</strong>
+                            <ul>
+                                <li>Extends from hyoid bone to esophagus</li>
+                                <li>Diverges into larynx (anterior) and esophagus (posterior)</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h3>3. The Larynx (Voice Box)</h3>
+                    <p>Located between the pharynx and trachea, the larynx contains the vocal cords and protects the airway during swallowing.</p>
+
+                    <h4>Cartilages of the Larynx:</h4>
+                    <ul>
+                        <li><strong>Thyroid Cartilage:</strong> Largest; forms Adam's apple</li>
+                        <li><strong>Cricoid Cartilage:</strong> Ring-shaped; inferior to thyroid cartilage</li>
+                        <li><strong>Epiglottis:</strong> Elastic cartilage that covers laryngeal inlet during swallowing</li>
+                        <li><strong>Arytenoid Cartilages:</strong> Anchor and move vocal cords</li>
+                        <li><strong>Corniculate and Cuneiform:</strong> Small supporting cartilages</li>
+                    </ul>
+
+                    <h4>Vocal Cords:</h4>
+                    <ul>
+                        <li><strong>True Vocal Cords:</strong> Vibrate to produce sound</li>
+                        <li><strong>False Vocal Cords:</strong> Superior to true cords; protect and close during swallowing</li>
+                        <li><strong>Glottis:</strong> Opening between vocal cords</li>
+                    </ul>
+
+                    <div class="info-box">
+                        <h4>Voice Production Mechanism</h4>
+                        <p>Sound is produced when exhaled air passes through the glottis, causing the vocal cords to vibrate. Pitch is controlled by cord tension (controlled by intrinsic laryngeal muscles), while volume depends on air pressure.</p>
+                    </div>
+
+                    <h3>4. The Trachea (Windpipe)</h3>
+                    <p>A tube approximately 12 cm long and 2.5 cm in diameter extending from the larynx to the bronchi.</p>
+
+                    <h4>Structure:</h4>
+                    <ul>
+                        <li><strong>C-Shaped Cartilage Rings:</strong> 16-20 hyaline cartilage rings prevent collapse</li>
+                        <li><strong>Trachealis Muscle:</strong> Smooth muscle connecting posterior ends of cartilage rings</li>
+                        <li><strong>Mucosal Lining:</strong> Pseudostratified ciliated columnar epithelium</li>
+                        <li><strong>Cilia:</strong> Beat upward to move mucus toward pharynx (mucociliary escalator)</li>
+                        <li><strong>Goblet Cells:</strong> Produce mucus to trap particles</li>
+                    </ul>
+
+                    <h3>5. The Bronchi and Bronchioles</h3>
+                    <p>The trachea divides at the carina (T5 level) into right and left primary bronchi.</p>
+
+                    <div class="process-flow">
+                        <h4>Bronchial Tree Hierarchy:</h4>
+                        <div class="process-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Primary (Main) Bronchi</h4>
+                                <p>Right: wider, shorter, more vertical (more prone to aspiration). Left: narrower, longer, more horizontal. Both contain C-shaped cartilage rings.</p>
+                            </div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Secondary (Lobar) Bronchi</h4>
+                                <p>3 in right lung (upper, middle, lower lobes); 2 in left lung (upper, lower lobes). Cartilage becomes irregular plates.</p>
+                            </div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Tertiary (Segmental) Bronchi</h4>
+                                <p>Supply bronchopulmonary segments (10 in right, 8-10 in left). Further reduction in cartilage.</p>
+                            </div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h4>Bronchioles</h4>
+                                <p>Diameter < 1 mm. No cartilage; supported by smooth muscle. Epithelium transitions to simple columnar/cuboidal.</p>
+                            </div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">5</div>
+                            <div class="step-content">
+                                <h4>Terminal Bronchioles</h4>
+                                <p>Last conducting airways. Simple cuboidal epithelium with Clara cells (produce surfactant).</p>
+                            </div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">6</div>
+                            <div class="step-content">
+                                <h4>Respiratory Bronchioles</h4>
+                                <p>First site of gas exchange. Occasional alveoli in walls.</p>
+                            </div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">7</div>
+                            <div class="step-content">
+                                <h4>Alveolar Ducts and Sacs</h4>
+                                <p>Completely lined with alveoli. Primary site of gas exchange.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>6. The Lungs</h3>
+                    <p>Two cone-shaped organs occupying the thoracic cavity, separated by the mediastinum.</p>
+
+                    <h4>General Structure:</h4>
+                    <ul>
+                        <li><strong>Apex:</strong> Superior tip extending above clavicle</li>
+                        <li><strong>Base:</strong> Inferior surface resting on diaphragm</li>
+                        <li><strong>Hilum:</strong> Medial depression where bronchi, vessels, and nerves enter</li>
+                        <li><strong>Costal Surface:</strong> Anterior, lateral, and posterior surfaces against ribs</li>
+                    </ul>
+
+                    <h4>Lobes and Fissures:</h4>
+                    <ul>
+                        <li><strong>Right Lung:</strong> 3 lobes (superior, middle, inferior) separated by horizontal and oblique fissures</li>
+                        <li><strong>Left Lung:</strong> 2 lobes (superior, inferior) separated by oblique fissure; contains cardiac notch</li>
+                    </ul>
+
+                    <h4>Pleural Membranes:</h4>
+                    <ul>
+                        <li><strong>Visceral Pleura:</strong> Adheres directly to lung surface</li>
+                        <li><strong>Parietal Pleura:</strong> Lines thoracic wall, diaphragm, and mediastinum</li>
+                        <li><strong>Pleural Cavity:</strong> Potential space containing serous fluid (lubricates, creates surface tension)</li>
+                        <li><strong>Intrapleural Pressure:</strong> Slightly negative (~-4 mmHg), keeps lungs inflated</li>
+                    </ul>
+
+                    <h3>7. The Alveoli</h3>
+                    <p>Microscopic air sacs where gas exchange occurs. Each lung contains 150-250 million alveoli.</p>
+
+                    <h4>Alveolar Structure:</h4>
+                    <ul>
+                        <li><strong>Type I Pneumocytes:</strong>
+                            <ul>
+                                <li>95% of alveolar surface area</li>
+                                <li>Extremely thin (0.2-0.5 μm) for gas diffusion</li>
+                                <li>Connected by tight junctions</li>
+                            </ul>
+                        </li>
+                        <li><strong>Type II Pneumocytes:</strong>
+                            <ul>
+                                <li>5% of surface; cuboidal shape</li>
+                                <li>Produce pulmonary surfactant (reduces surface tension)</li>
+                                <li>Can differentiate into Type I cells for repair</li>
+                            </ul>
+                        </li>
+                        <li><strong>Alveolar Macrophages:</strong>
+                            <ul>
+                                <li>Phagocytose dust, debris, and pathogens</li>
+                                <li>Part of innate immune system</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h4>Respiratory Membrane:</h4>
+                    <p>The barrier between air and blood consists of:</p>
+                    <ol>
+                        <li>Alveolar epithelium (Type I pneumocyte)</li>
+                        <li>Fused basement membranes</li>
+                        <li>Capillary endothelium</li>
+                    </ol>
+                    <p><strong>Total thickness:</strong> 0.5 μm (extremely thin for rapid diffusion)</p>
+
+                    <div class="highlight-box">
+                        <h4>Surfactant Importance</h4>
+                        <p>Pulmonary surfactant is a complex mixture of phospholipids (mainly dipalmitoylphosphatidylcholine) and proteins. It reduces surface tension in alveoli, preventing collapse during expiration and reducing the work of breathing. Premature infants often lack sufficient surfactant, leading to respiratory distress syndrome.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PHYSIOLOGY TAB -->
+            <div id="physiology" class="tab-content">
+                <div class="section">
+                    <h2>Respiratory Physiology</h2>
+
+                    <h3>Pulmonary Ventilation (Breathing)</h3>
+                    <p>Pulmonary ventilation is the physical movement of air into and out of the lungs, driven by pressure gradients.</p>
+
+                    <h4>Pressure Relationships:</h4>
+                    <ul>
+                        <li><strong>Atmospheric Pressure (Patm):</strong> 760 mmHg at sea level</li>
+                        <li><strong>Intrapulmonary Pressure (Ppul):</strong> Pressure inside alveoli</li>
+                        <li><strong>Intrapleural Pressure (Pip):</strong> Pressure in pleural cavity (~756 mmHg at rest)</li>
+                    </ul>
+
+                    <div class="highlight-box">
+                        <h4>Boyle's Law in Breathing</h4>
+                        <p>P₁V₁ = P₂V₂ - At constant temperature, pressure and volume are inversely related. When thoracic volume increases, intrapulmonary pressure decreases, causing air to flow in. When volume decreases, pressure increases, forcing air out.</p>
+                    </div>
+
+                    <h3>Inspiration (Inhalation)</h3>
+                    <div class="process-flow">
+                        <div class="process-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Diaphragm Contracts</h4>
+                                <p>Primary respiratory muscle contracts and flattens, increasing vertical thoracic dimension by ~1 cm (quiet breathing) to 10 cm (deep breathing).</p>
+                            </div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>External Intercostals Contract</h4>
+                                <p>Ribs elevate and sternum moves forward/upward, increasing anteroposterior and lateral dimensions.</p>
+                            </div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Thoracic Volume Increases</h4>
+                                <p>Chest cavity expands, causing intrapleural pressure to become more negative (~-6 mmHg).</p>
+                            </div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h4>Lungs Expand</h4>
+                                <p>Visceral pleura pulls with parietal pleura due to surface tension. Alveolar volume increases.</p>
+                            </div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">5</div>
+                            <div class="step-content">
+                                <h4>Pressure Decreases</h4>
+                                <p>Intrapulmonary pressure drops to ~758 mmHg (2 mmHg below atmospheric).</p>
+                            </div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">6</div>
+                            <div class="step-content">
+                                <h4>Air Flows In</h4>
+                                <p>Air moves from higher atmospheric pressure to lower alveolar pressure until pressures equalize.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4>Deep Inspiration Accessory Muscles:</h4>
+                    <ul>
+                        <li><strong>Sternocleidomastoid:</strong> Elevates sternum</li>
+                        <li><strong>Scalenes:</strong> Elevate first two ribs</li>
+                        <li><strong>Pectoralis Minor:</strong> Elevates ribs 3-5</li>
+                    </ul>
+
+                    <h3>Expiration (Exhalation)</h3>
+
+                    <h4>Quiet Expiration (Passive):</h4>
+                    <div class="process-flow">
+                        <div class="process-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Muscles Relax</h4>
+                                <p>Diaphragm and external intercostals relax passively.</p>
+                            </div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Elastic Recoil</h4>
+                                <p>Lungs and chest wall return to resting position due to elastic fibers in lung tissue and surface tension in alveoli.</p>
+                            </div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Thoracic Volume Decreases</h4>
+                                <p>Chest cavity becomes smaller, intrapleural pressure becomes less negative (~-4 mmHg).</p>
+                            </div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h4>Pressure Increases</h4>
+                                <p>Intrapulmonary pressure rises to ~762 mmHg (2 mmHg above atmospheric).</p>
+                            </div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">5</div>
+                            <div class="step-content">
+                                <h4>Air Flows Out</h4>
+                                <p>Air moves from higher alveolar pressure to lower atmospheric pressure.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4>Forced Expiration (Active):</h4>
+                    <ul>
+                        <li><strong>Internal Intercostals:</strong> Depress rib cage</li>
+                        <li><strong>Abdominal Muscles:</strong> Contract to push diaphragm upward
+                            <ul>
+                                <li>Rectus abdominis</li>
+                                <li>External obliques</li>
+                                <li>Internal obliques</li>
+                                <li>Transversus abdominis</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h3>Lung Volumes and Capacities</h3>
+                    <p>Measured using spirometry, these values vary with age, sex, height, and fitness level.</p>
+
+                    <h4>Lung Volumes (Non-overlapping):</h4>
+                    <table class="data-table">
+                        <tr>
+                            <th>Volume</th>
+                            <th>Definition</th>
+                            <th>Average Value</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Tidal Volume (TV)</strong></td>
+                            <td>Air inhaled or exhaled in normal quiet breathing</td>
+                            <td>500 mL</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Inspiratory Reserve Volume (IRV)</strong></td>
+                            <td>Additional air that can be forcefully inhaled after normal inspiration</td>
+                            <td>3,000 mL</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Expiratory Reserve Volume (ERV)</strong></td>
+                            <td>Additional air that can be forcefully exhaled after normal expiration</td>
+                            <td>1,200 mL</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Residual Volume (RV)</strong></td>
+                            <td>Air remaining in lungs after maximal exhalation (cannot be measured by spirometry)</td>
+                            <td>1,200 mL</td>
+                        </tr>
+                    </table>
+
+                    <h4>Lung Capacities (Sum of volumes):</h4>
+                    <table class="data-table">
+                        <tr>
+                            <th>Capacity</th>
+                            <th>Formula</th>
+                            <th>Average Value</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Inspiratory Capacity (IC)</strong></td>
+                            <td>TV + IRV</td>
+                            <td>3,500 mL</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Functional Residual Capacity (FRC)</strong></td>
+                            <td>ERV + RV</td>
+                            <td>2,400 mL</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Vital Capacity (VC)</strong></td>
+                            <td>TV + IRV + ERV</td>
+                            <td>4,700 mL</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Total Lung Capacity (TLC)</strong></td>
+                            <td>TV + IRV + ERV + RV</td>
+                            <td>5,900 mL</td>
+                        </tr>
+                    </table>
+
+                    <h4>Dead Space:</h4>
+                    <ul>
+                        <li><strong>Anatomical Dead Space:</strong> Air in conducting airways that doesn't participate in gas exchange (~150 mL)</li>
+                        <li><strong>Alveolar Dead Space:</strong> Air in non-functional alveoli (normally minimal)</li>
+                        <li><strong>Physiological Dead Space:</strong> Anatomical + Alveolar dead space</li>
+                    </ul>
+
+                    <h4>Minute Ventilation:</h4>
+                    <p><strong>Total Pulmonary Ventilation:</strong> Respiratory rate × Tidal volume</p>
+                    <p>Example: 12 breaths/min × 500 mL = 6,000 mL/min = 6 L/min</p>
+
+                    <p><strong>Alveolar Ventilation:</strong> Respiratory rate × (Tidal volume - Dead space)</p>
+                    <p>Example: 12 × (500 - 150) = 4,200 mL/min = 4.2 L/min</p>
+
+                    <div class="info-box">
+                        <h4>Clinical Significance</h4>
+                        <p>Alveolar ventilation is more important than total ventilation for gas exchange. Rapid, shallow breathing moves air mainly in dead space, while slow, deep breathing maximizes alveolar ventilation.</p>
+                    </div>
+
+                    <h3>Factors Affecting Pulmonary Ventilation</h3>
+
+                    <h4>1. Airway Resistance:</h4>
+                    <ul>
+                        <li><strong>Bronchiole Diameter:</strong> Primary determinant
+                            <ul>
+                                <li>Sympathetic stimulation → bronchodilation (β₂ receptors)</li>
+                                <li>Parasympathetic stimulation → bronchoconstriction (muscarinic receptors)</li>
+                                <li>Histamine → bronchoconstriction (allergic reactions)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Mucus and Debris:</strong> Increases resistance</li>
+                        <li><strong>Lung Volume:</strong> Higher volume = wider airways = less resistance</li>
+                    </ul>
+
+                    <h4>2. Lung Compliance:</h4>
+                    <p>Measure of lung distensibility - how easily lungs expand.</p>
+                    <ul>
+                        <li><strong>High Compliance:</strong> Lungs expand easily (e.g., emphysema)</li>
+                        <li><strong>Low Compliance:</strong> Lungs resist expansion (e.g., fibrosis)</li>
+                        <li><strong>Factors Decreasing Compliance:</strong>
+                            <ul>
+                                <li>Decreased surfactant production</li>
+                                <li>Pulmonary fibrosis (scarring)</li>
+                                <li>Pulmonary edema (fluid in lungs)</li>
+                                <li>Decreased chest wall elasticity</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h4>3. Alveolar Surface Tension:</h4>
+                    <ul>
+                        <li><strong>Without Surfactant:</strong> Surface tension would collapse small alveoli</li>
+                        <li><strong>Law of LaPlace:</strong> Smaller alveoli have higher pressure (P = 2T/r)</li>
+                        <li><strong>Surfactant Effect:</strong> Reduces surface tension more in smaller alveoli, preventing collapse and equalizing pressures</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- GAS EXCHANGE TAB -->
+            <div id="gas-exchange" class="tab-content">
+                <div class="section">
+                    <h2>Gas Exchange and Transport</h2>
+
+                    <h3>Basic Gas Laws</h3>
+
+                    <div class="highlight-box">
+                        <h4>Dalton's Law of Partial Pressures</h4>
+                        <p>Total pressure of a gas mixture equals the sum of partial pressures of each gas.</p>
+                        <p><strong>Atmospheric pressure (760 mmHg) = PN₂ + PO₂ + PH₂O + PCO₂ + others</strong></p>
+                        <ul>
+                            <li>PO₂ (oxygen) = 159 mmHg (21% of atmosphere)</li>
+                            <li>PN₂ (nitrogen) = 597 mmHg (78%)</li>
+                            <li>PCO₂ (carbon dioxide) = 0.3 mmHg (0.04%)</li>
+                        </ul>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4>Henry's Law</h4>
+                        <p>The amount of gas that dissolves in liquid is proportional to its partial pressure and solubility coefficient.</p>
+                        <p>CO₂ is 20× more soluble than O₂ in blood plasma.</p>
+                    </div>
+
+                    <h3>Alveolar Gas Exchange (External Respiration)</h3>
+                    <p>Gas exchange between alveolar air and pulmonary capillary blood occurs via simple diffusion across the respiratory membrane.</p>
+
+                    <h4>Partial Pressures Driving Diffusion:</h4>
+                    <table class="data-table">
+                        <tr>
+                            <th>Location</th>
+                            <th>PO₂ (mmHg)</th>
+                            <th>PCO₂ (mmHg)</th>
+                        </tr>
+                        <tr>
+                            <td>Alveolar air</td>
+                            <td>104</td>
+                            <td>40</td>
+                        </tr>
+                        <tr>
+                            <td>Deoxygenated blood (entering pulmonary capillary)</td>
+                            <td>40</td>
+                            <td>45</td>
+                        </tr>
+                        <tr>
+                            <td>Oxygenated blood (leaving pulmonary capillary)</td>
+                            <td>104</td>
+                            <td>40</td>
+                        </tr>
+                    </table>
+
+                    <div class="process-flow">
+                        <h4>External Respiration Process:</h4>
+                        <div class="process-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Oxygen Diffusion</h4>
+                                <p>O₂ diffuses from alveoli (PO₂ = 104) into blood (PO₂ = 40). Gradient = 64 mmHg.</p>
+                            </div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Carbon Dioxide Diffusion</h4>
+                                <p>CO₂ diffuses from blood (PCO₂ = 45) into alveoli (PCO₂ = 40). Gradient = 5 mmHg (sufficient due to high CO₂ solubility).</p>
+                            </div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Equilibration</h4>
+                                <p>Blood and alveolar gases reach equilibrium in ~0.25 seconds (blood transits capillary in ~0.75 seconds, providing safety margin).</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4>Factors Affecting Gas Exchange Efficiency:</h4>
+                    <ul>
+                        <li><strong>Membrane Thickness:</strong> Thicker membrane (edema, fibrosis) impairs diffusion</li>
+                        <li><strong>Surface Area:</strong> Reduced in emphysema (alveolar destruction)</li>
+                        <li><strong>Partial Pressure Gradient:</strong> Reduced at high altitude or in hypoventilation</li>
+                        <li><strong>Diffusion Distance:</strong> Increased in pulmonary edema</li>
+                        <li><strong>Transit Time:</strong> Decreased in exercise (may limit equilibration)</li>
+                    </ul>
+
+                    <h3>Oxygen Transport in Blood</h3>
+
+                    <h4>Two Forms of O₂ Transport:</h4>
+                    <ul>
+                        <li><strong>Dissolved in Plasma:</strong> 1.5% (directly proportional to PO₂, follows Henry's law)</li>
+                        <li><strong>Bound to Hemoglobin:</strong> 98.5% (reversible binding)</li>
+                    </ul>
+
+                    <h4>Hemoglobin Structure:</h4>
+                    <ul>
+                        <li><strong>Composition:</strong> 4 polypeptide chains (2 alpha, 2 beta) each with a heme group</li>
+                        <li><strong>Heme:</strong> Contains iron (Fe²⁺) that reversibly binds O₂</li>
+                        <li><strong>Capacity:</strong> Each hemoglobin molecule binds 4 O₂ molecules</li>
+                        <li><strong>Concentration:</strong> ~15 g Hb/100 mL blood</li>
+                        <li><strong>Carrying Capacity:</strong> 1.34 mL O₂/g Hb → ~20 mL O₂/100 mL blood when fully saturated</li>
+                    </ul>
+
+                    <h4>Oxyhemoglobin Dissociation Curve:</h4>
+                    <p>S-shaped (sigmoid) curve showing relationship between PO₂ and hemoglobin saturation.</p>
+
+                    <div class="highlight-box">
+                        <h4>Key Points on the Curve:</h4>
+                        <ul>
+                            <li><strong>Plateau Region (PO₂ > 70 mmHg):</strong> Hb remains highly saturated despite PO₂ variations (safety margin)</li>
+                            <li><strong>Normal Arterial Point:</strong> PO₂ = 100 mmHg, ~97.5% saturated</li>
+                            <li><strong>Normal Venous Point:</strong> PO₂ = 40 mmHg, ~75% saturated</li>
+                            <li><strong>Steep Portion (PO₂ 20-60 mmHg):</strong> Small PO₂ changes cause large O₂ unloading (efficient tissue delivery)</li>
+                        </ul>
+                    </div>
+
+                    <h4>Factors Shifting the Curve RIGHT (decreased O₂ affinity - enhanced unloading at tissues):</h4>
+                    <ul>
+                        <li><strong>Increased Temperature:</strong> Fever, exercising muscle</li>
+                        <li><strong>Increased PCO₂:</strong> Active tissues produce more CO₂</li>
+                        <li><strong>Decreased pH (acidosis):</strong> Bohr effect - H⁺ ions promote O₂ release</li>
+                        <li><strong>Increased 2,3-BPG:</strong> Produced during glycolysis in RBCs; increases with chronic hypoxia/altitude</li>
+                    </ul>
+
+                    <h4>Factors Shifting the Curve LEFT (increased O₂ affinity - enhanced loading at lungs):</h4>
+                    <ul>
+                        <li><strong>Decreased Temperature:</strong> Hypothermia</li>
+                        <li><strong>Decreased PCO₂:</strong> Hyperventilation</li>
+                        <li><strong>Increased pH (alkalosis):</strong> Less H⁺ ions</li>
+                        <li><strong>Decreased 2,3-BPG:</strong> Stored blood</li>
+                        <li><strong>Fetal Hemoglobin (HbF):</strong> Higher O₂ affinity than adult Hb</li>
+                        <li><strong>Carbon Monoxide:</strong> Toxic leftward shift (CO has 200× affinity for Hb than O₂)</li>
+                    </ul>
+
+                    <h3>Carbon Dioxide Transport in Blood</h3>
+
+                    <h4>Three Forms of CO₂ Transport:</h4>
+
+                    <div class="anatomy-grid">
+                        <div class="anatomy-card">
+                            <h4>1. Dissolved CO₂ (7-10%)</h4>
+                            <p>Directly dissolved in plasma. Much more soluble than O₂. Determines PCO₂ measured in blood gases.</p>
+                        </div>
+                        <div class="anatomy-card">
+                            <h4>2. Carbaminohemoglobin (20%)</h4>
+                            <p>CO₂ bound to amino groups on hemoglobin (not to heme groups). Deoxygenated Hb binds CO₂ more readily than oxygenated Hb (Haldane effect).</p>
+                        </div>
+                        <div class="anatomy-card">
+                            <h4>3. Bicarbonate Ion (70%)</h4>
+                            <p>CO₂ converted to HCO₃⁻ in RBCs via carbonic anhydrase. Most important mechanism. Critical for pH buffering.</p>
+                        </div>
+                    </div>
+
+                    <h4>Bicarbonate Formation (Chloride Shift):</h4>
+                    <div class="process-flow">
+                        <div class="process-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>CO₂ Enters RBC</h4>
+                                <p>CO₂ from tissues diffuses into red blood cells.</p>
+                            </div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Carbonic Acid Formation</h4>
+                                <p>CO₂ + H₂O ⇌ H₂CO₃ (catalyzed by carbonic anhydrase enzyme)</p>
+                            </div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Dissociation</h4>
+                                <p>H₂CO₃ ⇌ H⁺ + HCO₃⁻ (carbonic acid dissociates)</p>
+                            </div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h4>H⁺ Buffering</h4>
+                                <p>H⁺ binds to hemoglobin (Hb-H), preventing pH drop. Deoxygenated Hb is a better H⁺ buffer.</p>
+                            </div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">5</div>
+                            <div class="step-content">
+                                <h4>Chloride Shift</h4>
+                                <p>HCO₃⁻ exits RBC into plasma via anion exchanger. Cl⁻ enters RBC to maintain electrical neutrality.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-box">
+                        <h4>Haldane Effect</h4>
+                        <p>Deoxygenated blood carries more CO₂ than oxygenated blood because:</p>
+                        <ul>
+                            <li>Deoxygenated Hb binds more CO₂ (carbaminohemoglobin formation)</li>
+                            <li>Deoxygenated Hb is a better H⁺ buffer (promotes bicarbonate formation)</li>
+                        </ul>
+                        <p>This enhances CO₂ pickup at tissues and CO₂ unloading at lungs.</p>
+                    </div>
+
+                    <h3>Tissue Gas Exchange (Internal Respiration)</h3>
+
+                    <h4>Partial Pressures at Tissues:</h4>
+                    <table class="data-table">
+                        <tr>
+                            <th>Location</th>
+                            <th>PO₂ (mmHg)</th>
+                            <th>PCO₂ (mmHg)</th>
+                        </tr>
+                        <tr>
+                            <td>Arterial blood (entering systemic capillary)</td>
+                            <td>100</td>
+                            <td>40</td>
+                        </tr>
+                        <tr>
+                            <td>Tissue cells (average)</td>
+                            <td>40 or less</td>
+                            <td>45 or more</td>
+                        </tr>
+                        <tr>
+                            <td>Venous blood (leaving systemic capillary)</td>
+                            <td>40</td>
+                            <td>45</td>
+                        </tr>
+                    </table>
+
+                    <div class="process-flow">
+                        <h4>Internal Respiration Process:</h4>
+                        <div class="process-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>O₂ Unloading</h4>
+                                <p>O₂ diffuses from blood (PO₂ = 100) to tissues (PO₂ = 40). Hemoglobin releases O₂ (97.5% → 75% saturated). ~25% of O₂ delivered to tissues at rest.</p>
+                            </div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>CO₂ Loading</h4>
+                                <p>CO₂ diffuses from tissues (PCO₂ = 45+) to blood (PCO₂ = 40). Transported as dissolved CO₂, carbaminohemoglobin, and bicarbonate.</p>
+                            </div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Venous Return</h4>
+                                <p>Deoxygenated blood returns to heart, then to lungs for reoxygenation.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>Regulation of Respiration</h3>
+
+                    <h4>Respiratory Centers in the Brain:</h4>
+
+                    <ul>
+                        <li><strong>Medullary Rhythmicity Centers (Medulla Oblongata):</strong>
+                            <ul>
+                                <li><strong>Dorsal Respiratory Group (DRG):</strong> Controls inspiration; sets basic rhythm</li>
+                                <li><strong>Ventral Respiratory Group (VRG):</strong> Inactive during quiet breathing; active during forced breathing (controls both inspiration and expiration)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Pontine Respiratory Centers (Pons):</strong>
+                            <ul>
+                                <li><strong>Pneumotaxic Center:</strong> Inhibits inspiration, fine-tunes rhythm</li>
+                                <li><strong>Apneustic Center:</strong> Stimulates inspiration, promotes deep breathing</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h4>Chemical Control - Most Important:</h4>
+
+                    <div class="highlight-box">
+                        <h4>Central Chemoreceptors (Medulla)</h4>
+                        <ul>
+                            <li><strong>Location:</strong> Ventral surface of medulla</li>
+                            <li><strong>Stimuli:</strong> Increased H⁺ (decreased pH) in cerebrospinal fluid (CSF)</li>
+                            <li><strong>Mechanism:</strong> CO₂ crosses blood-brain barrier → forms H₂CO₃ → H⁺ + HCO₃⁻</li>
+                            <li><strong>Response:</strong> Increased ventilation to blow off CO₂</li>
+                            <li><strong>Importance:</strong> Primary controller of ventilation (75-80% of drive)</li>
+                        </ul>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4>Peripheral Chemoreceptors</h4>
+                        <ul>
+                            <li><strong>Location:</strong> Carotid bodies (carotid arteries) and aortic bodies (aortic arch)</li>
+                            <li><strong>Stimuli:</strong>
+                                <ul>
+                                    <li>Decreased PO₂ (< 60 mmHg - hypoxemia)</li>
+                                    <li>Increased PCO₂ (hypercapnia)</li>
+                                    <li>Decreased pH (acidosis)</li>
+                                </ul>
+                            </li>
+                            <li><strong>Response:</strong> Increased ventilation</li>
+                            <li><strong>Note:</strong> Only receptors sensitive to low PO₂</li>
+                        </ul>
+                    </div>
+
+                    <div class="warning-box">
+                        <h4>Clinical Note: Oxygen as Respiratory Drive</h4>
+                        <p>In healthy individuals, CO₂ (via H⁺) is the primary respiratory drive. However, in chronic hypercapnia (e.g., severe COPD), central chemoreceptors become desensitized to CO₂. These patients may rely on hypoxic drive from peripheral chemoreceptors. Administering high-flow O₂ can eliminate this drive, leading to respiratory depression.</p>
+                    </div>
+
+                    <h4>Mechanoreceptors:</h4>
+                    <ul>
+                        <li><strong>Pulmonary Stretch Receptors:</strong> In smooth muscle of airways; prevent overinflation (Hering-Breuer reflex)</li>
+                        <li><strong>Irritant Receptors:</strong> In airway epithelium; respond to dust, smoke, cold air → cough, bronchoconstriction</li>
+                        <li><strong>J Receptors (Juxtacapillary):</strong> In alveolar walls; respond to pulmonary edema → rapid shallow breathing</li>
+                    </ul>
+
+                    <h4>Higher Brain Centers:</h4>
+                    <ul>
+                        <li><strong>Cerebral Cortex:</strong> Voluntary control (breath-holding, speaking, singing)</li>
+                        <li><strong>Hypothalamus:</strong> Emotional responses (fear, pain → hyperventilation)</li>
+                        <li><strong>Limbic System:</strong> Emotional breathing patterns</li>
+                    </ul>
+
+                    <h4>Other Factors:</h4>
+                    <ul>
+                        <li><strong>Body Temperature:</strong> Increased temp → increased ventilation</li>
+                        <li><strong>Exercise:</strong> Complex mechanism involving proprioceptors, motor cortex, and chemical changes</li>
+                        <li><strong>Blood Pressure:</strong> Sudden increase → decreased ventilation (via baroreceptors)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- CONDITIONS TAB -->
+            <div id="conditions" class="tab-content">
+                <div class="section">
+                    <h2>Common Respiratory Conditions</h2>
+
+                    <h3>Obstructive Lung Diseases</h3>
+                    <p>Characterized by airflow limitation, usually due to airway narrowing or loss of elastic recoil.</p>
+
+                    <div class="anatomy-grid">
+                        <div class="anatomy-card">
+                            <h4>Asthma</h4>
+                            <p><strong>Cause:</strong> Chronic airway inflammation with reversible bronchoconstriction</p>
+                            <p><strong>Triggers:</strong> Allergens, exercise, cold air, stress</p>
+                            <p><strong>Symptoms:</strong> Wheezing, dyspnea, chest tightness, cough</p>
+                            <p><strong>Treatment:</strong> Bronchodilators (β₂ agonists), corticosteroids</p>
+                        </div>
+                        <div class="anatomy-card">
+                            <h4>Chronic Bronchitis</h4>
+                            <p><strong>Cause:</strong> Chronic inflammation of bronchi, excessive mucus production</p>
+                            <p><strong>Definition:</strong> Productive cough for ≥3 months in 2 consecutive years</p>
+                            <p><strong>Symptoms:</strong> Chronic cough with sputum, dyspnea, cyanosis ("blue bloaters")</p>
+                            <p><strong>Risk Factor:</strong> Smoking (90% of cases)</p>
+                        </div>
+                        <div class="anatomy-card">
+                            <h4>Emphysema</h4>
+                            <p><strong>Cause:</strong> Destruction of alveolar walls, loss of elastic recoil</p>
+                            <p><strong>Mechanism:</strong> Protease/antiprotease imbalance</p>
+                            <p><strong>Symptoms:</strong> Dyspnea, barrel chest, pursed-lip breathing ("pink puffers")</p>
+                            <p><strong>Finding:</strong> Reduced surface area for gas exchange</p>
+                        </div>
+                        <div class="anatomy-card">
+                            <h4>COPD</h4>
+                            <p><strong>Definition:</strong> Combination of chronic bronchitis and emphysema</p>
+                            <p><strong>Characteristic:</strong> Progressive, irreversible airflow limitation</p>
+                            <p><strong>Spirometry:</strong> Reduced FEV₁/FVC ratio (< 70%)</p>
+                            <p><strong>Management:</strong> Smoking cessation, bronchodilators, O₂ therapy</p>
+                        </div>
+                    </div>
+
+                    <h3>Restrictive Lung Diseases</h3>
+                    <p>Characterized by reduced lung expansion and decreased total lung capacity.</p>
+
+                    <div class="anatomy-grid">
+                        <div class="anatomy-card">
+                            <h4>Pulmonary Fibrosis</h4>
+                            <p><strong>Cause:</strong> Scarring of lung tissue, thickening of alveolar walls</p>
+                            <p><strong>Result:</strong> Reduced compliance, impaired gas exchange</p>
+                            <p><strong>Causes:</strong> Idiopathic, occupational exposures, medications</p>
+                            <p><strong>Symptoms:</strong> Progressive dyspnea, dry cough, clubbing</p>
+                        </div>
+                        <div class="anatomy-card">
+                            <h4>Pneumoconiosis</h4>
+                            <p><strong>Types:</strong> Asbestosis, silicosis, coal worker's pneumoconiosis</p>
+                            <p><strong>Cause:</strong> Inhalation of mineral dusts</p>
+                            <p><strong>Mechanism:</strong> Inflammation → fibrosis</p>
+                            <p><strong>Prevention:</strong> Occupational safety measures</p>
+                        </div>
+                        <div class="anatomy-card">
+                            <h4>Sarcoidosis</h4>
+                            <p><strong>Cause:</strong> Inflammatory disease with granuloma formation</p>
+                            <p><strong>Affected:</strong> Lungs, lymph nodes, other organs</p>
+                            <p><strong>Symptoms:</strong> Variable; may be asymptomatic or severe</p>
+                            <p><strong>Diagnosis:</strong> Chest X-ray, biopsy</p>
+                        </div>
+                        <div class="anatomy-card">
+                            <h4>Respiratory Distress Syndrome</h4>
+                            <p><strong>Neonatal RDS:</strong> Surfactant deficiency in premature infants</p>
+                            <p><strong>Adult ARDS:</strong> Acute lung injury, diffuse alveolar damage</p>
+                            <p><strong>Treatment:</strong> Mechanical ventilation, surfactant therapy (neonatal)</p>
+                            <p><strong>Mortality:</strong> High in ARDS (30-40%)</p>
+                        </div>
+                    </div>
+
+                    <h3>Infectious Diseases</h3>
+
+                    <div class="anatomy-grid">
+                        <div class="anatomy-card">
+                            <h4>Pneumonia</h4>
+                            <p><strong>Cause:</strong> Infection of alveoli (bacterial, viral, fungal)</p>
+                            <p><strong>Common Bacteria:</strong> Streptococcus pneumoniae, Haemophilus influenzae</p>
+                            <p><strong>Symptoms:</strong> Fever, cough with sputum, dyspnea, chest pain</p>
+                            <p><strong>Finding:</strong> Consolidation on chest X-ray</p>
+                        </div>
+                        <div class="anatomy-card">
+                            <h4>Tuberculosis (TB)</h4>
+                            <p><strong>Cause:</strong> Mycobacterium tuberculosis</p>
+                            <p><strong>Transmission:</strong> Airborne droplets</p>
+                            <p><strong>Symptoms:</strong> Chronic cough, hemoptysis, night sweats, weight loss</p>
+                            <p><strong>Treatment:</strong> Multi-drug antibiotic therapy (6-9 months)</p>
+                        </div>
+                        <div class="anatomy-card">
+                            <h4>Influenza</h4>
+                            <p><strong>Cause:</strong> Influenza virus (types A, B, C)</p>
+                            <p><strong>Symptoms:</strong> Fever, myalgia, cough, sore throat</p>
+                            <p><strong>Complications:</strong> Secondary bacterial pneumonia</p>
+                            <p><strong>Prevention:</strong> Annual vaccination</p>
+                        </div>
+                        <div class="anatomy-card">
+                            <h4>COVID-19</h4>
+                            <p><strong>Cause:</strong> SARS-CoV-2 virus</p>
+                            <p><strong>Symptoms:</strong> Variable; fever, cough, dyspnea, loss of taste/smell</p>
+                            <p><strong>Severe:</strong> ARDS, multi-organ failure</p>
+                            <p><strong>Prevention:</strong> Vaccination, hygiene measures</p>
+                        </div>
+                    </div>
+
+                    <h3>Other Conditions</h3>
+
+                    <div class="info-box">
+                        <h4>Lung Cancer</h4>
+                        <p><strong>Types:</strong> Small cell lung carcinoma (SCLC), non-small cell lung carcinoma (NSCLC)</p>
+                        <p><strong>Risk Factors:</strong> Smoking (85% of cases), radon, asbestos, air pollution</p>
+                        <p><strong>Symptoms:</strong> Often late; cough, hemoptysis, dyspnea, weight loss</p>
+                        <p><strong>Prognosis:</strong> Often poor; 5-year survival ~20%</p>
+                        <p><strong>Prevention:</strong> Smoking cessation most important</p>
+                    </div>
+
+                    <div class="info-box">
+                        <h4>Pulmonary Embolism (PE)</h4>
+                        <p><strong>Cause:</strong> Blood clot blocking pulmonary artery (often from deep vein thrombosis)</p>
+                        <p><strong>Symptoms:</strong> Sudden dyspnea, chest pain, tachycardia, hypoxemia</p>
+                        <p><strong>Diagnosis:</strong> CT pulmonary angiography, D-dimer</p>
+                        <p><strong>Treatment:</strong> Anticoagulation, thrombolysis (severe cases)</p>
+                        <p><strong>Risk Factors:</strong> Immobility, surgery, pregnancy, clotting disorders</p>
+                    </div>
+
+                    <div class="info-box">
+                        <h4>Pleural Effusion</h4>
+                        <p><strong>Definition:</strong> Excess fluid in pleural cavity</p>
+                        <p><strong>Types:</strong> Transudative (heart failure, cirrhosis) vs. Exudative (infection, cancer)</p>
+                        <p><strong>Symptoms:</strong> Dyspnea, pleuritic chest pain, cough</p>
+                        <p><strong>Diagnosis:</strong> Chest X-ray, thoracentesis (fluid analysis)</p>
+                        <p><strong>Treatment:</strong> Treat underlying cause, drainage if large</p>
+                    </div>
+
+                    <div class="warning-box">
+                        <h4>Pneumothorax</h4>
+                        <p><strong>Definition:</strong> Air in pleural cavity causing lung collapse</p>
+                        <p><strong>Types:</strong></p>
+                        <ul>
+                            <li><strong>Spontaneous:</strong> Rupture of bleb (young, tall, thin males)</li>
+                            <li><strong>Traumatic:</strong> Penetrating chest injury, rib fracture</li>
+                            <li><strong>Tension:</strong> Life-threatening; progressive air accumulation with mediastinal shift</li>
+                        </ul>
+                        <p><strong>Symptoms:</strong> Sudden chest pain, dyspnea, decreased breath sounds</p>
+                        <p><strong>Treatment:</strong> Chest tube insertion, needle decompression (tension)</p>
+                    </div>
+
+                    <div class="info-box">
+                        <h4>Sleep Apnea</h4>
+                        <p><strong>Obstructive Sleep Apnea (OSA):</strong> Upper airway collapse during sleep</p>
+                        <p><strong>Central Sleep Apnea:</strong> Brain fails to signal breathing muscles</p>
+                        <p><strong>Symptoms:</strong> Loud snoring, daytime sleepiness, morning headaches</p>
+                        <p><strong>Complications:</strong> Hypertension, heart disease, stroke</p>
+                        <p><strong>Treatment:</strong> CPAP (continuous positive airway pressure), weight loss</p>
+                    </div>
+
+                    <h3>Diagnostic Tests</h3>
+
+                    <table class="data-table">
+                        <tr>
+                            <th>Test</th>
+                            <th>Purpose</th>
+                            <th>Key Findings</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Spirometry</strong></td>
+                            <td>Measure lung volumes and airflow</td>
+                            <td>FEV₁, FVC, FEV₁/FVC ratio for obstructive vs. restrictive</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Peak Flow</strong></td>
+                            <td>Monitor asthma control</td>
+                            <td>Maximum expiratory flow rate</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Arterial Blood Gas (ABG)</strong></td>
+                            <td>Assess oxygenation and acid-base status</td>
+                            <td>PO₂, PCO₂, pH, HCO₃⁻, O₂ saturation</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pulse Oximetry</strong></td>
+                            <td>Non-invasive O₂ saturation</td>
+                            <td>SpO₂ (normal >95%)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Chest X-ray</strong></td>
+                            <td>Visualize lungs, heart, bones</td>
+                            <td>Infiltrates, masses, effusions, pneumothorax</td>
+                        </tr>
+                        <tr>
+                            <td><strong>CT Scan</strong></td>
+                            <td>Detailed lung imaging</td>
+                            <td>Tumors, fibrosis, bronchiectasis, PE</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Bronchoscopy</strong></td>
+                            <td>Direct airway visualization</td>
+                            <td>Biopsy, lavage, foreign body removal</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Lung Biopsy</strong></td>
+                            <td>Tissue diagnosis</td>
+                            <td>Cancer, fibrosis, infection identification</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- QUIZ TAB -->
+            <div id="quiz" class="tab-content">
+                <div class="section">
+                    <h2>Test Your Knowledge</h2>
+                    <p>Select the correct answer for each question, then check your response.</p>
+
+                    <div class="quiz-container">
+                        <!-- Question 1 -->
+                        <div class="quiz-question">
+                            <h4>1. What is the primary muscle of inspiration?</h4>
+                            <div class="quiz-options" id="q1-options">
+                                <div class="quiz-option" onclick="selectAnswer('q1', 0)">A. External intercostals</div>
+                                <div class="quiz-option" onclick="selectAnswer('q1', 1)">B. Diaphragm</div>
+                                <div class="quiz-option" onclick="selectAnswer('q1', 2)">C. Internal intercostals</div>
+                                <div class="quiz-option" onclick="selectAnswer('q1', 3)">D. Abdominal muscles</div>
+                            </div>
+                            <button class="btn" onclick="checkAnswer('q1', 1)">Check Answer</button>
+                            <div class="quiz-result" id="q1-result"></div>
+                        </div>
+
+                        <!-- Question 2 -->
+                        <div class="quiz-question">
+                            <h4>2. Which cells in the alveoli produce surfactant?</h4>
+                            <div class="quiz-options" id="q2-options">
+                                <div class="quiz-option" onclick="selectAnswer('q2', 0)">A. Type I pneumocytes</div>
+                                <div class="quiz-option" onclick="selectAnswer('q2', 1)">B. Type II pneumocytes</div>
+                                <div class="quiz-option" onclick="selectAnswer('q2', 2)">C. Alveolar macrophages</div>
+                                <div class="quiz-option" onclick="selectAnswer('q2', 3)">D. Endothelial cells</div>
+                            </div>
+                            <button class="btn" onclick="checkAnswer('q2', 1)">Check Answer</button>
+                            <div class="quiz-result" id="q2-result"></div>
+                        </div>
+
+                        <!-- Question 3 -->
+                        <div class="quiz-question">
+                            <h4>3. What percentage of oxygen in blood is transported bound to hemoglobin?</h4>
+                            <div class="quiz-options" id="q3-options">
+                                <div class="quiz-option" onclick="selectAnswer('q3', 0)">A. 50%</div>
+                                <div class="quiz-option" onclick="selectAnswer('q3', 1)">B. 75%</div>
+                                <div class="quiz-option" onclick="selectAnswer('q3', 2)">C. 90%</div>
+                                <div class="quiz-option" onclick="selectAnswer('q3', 3)">D. 98.5%</div>
+                            </div>
+                            <button class="btn" onclick="checkAnswer('q3', 3)">Check Answer</button>
+                            <div class="quiz-result" id="q3-result"></div>
+                        </div>
+
+                        <!-- Question 4 -->
+                        <div class="quiz-question">
+                            <h4>4. Which form of CO₂ transport represents approximately 70% of total CO₂ in blood?</h4>
+                            <div class="quiz-options" id="q4-options">
+                                <div class="quiz-option" onclick="selectAnswer('q4', 0)">A. Dissolved CO₂</div>
+                                <div class="quiz-option" onclick="selectAnswer('q4', 1)">B. Carbaminohemoglobin</div>
+                                <div class="quiz-option" onclick="selectAnswer('q4', 2)">C. Bicarbonate ion (HCO₃⁻)</div>
+                                <div class="quiz-option" onclick="selectAnswer('q4', 3)">D. Carbonic acid</div>
+                            </div>
+                            <button class="btn" onclick="checkAnswer('q4', 2)">Check Answer</button>
+                            <div class="quiz-result" id="q4-result"></div>
+                        </div>
+
+                        <!-- Question 5 -->
+                        <div class="quiz-question">
+                            <h4>5. What is the normal tidal volume during quiet breathing?</h4>
+                            <div class="quiz-options" id="q5-options">
+                                <div class="quiz-option" onclick="selectAnswer('q5', 0)">A. 200 mL</div>
+                                <div class="quiz-option" onclick="selectAnswer('q5', 1)">B. 500 mL</div>
+                                <div class="quiz-option" onclick="selectAnswer('q5', 2)">C. 1,200 mL</div>
+                                <div class="quiz-option" onclick="selectAnswer('q5', 3)">D. 3,000 mL</div>
+                            </div>
+                            <button class="btn" onclick="checkAnswer('q5', 1)">Check Answer</button>
+                            <div class="quiz-result" id="q5-result"></div>
+                        </div>
+
+                        <!-- Question 6 -->
+                        <div class="quiz-question">
+                            <h4>6. The respiratory control center is primarily located in which part of the brain?</h4>
+                            <div class="quiz-options" id="q6-options">
+                                <div class="quiz-option" onclick="selectAnswer('q6', 0)">A. Cerebral cortex</div>
+                                <div class="quiz-option" onclick="selectAnswer('q6', 1)">B. Cerebellum</div>
+                                <div class="quiz-option" onclick="selectAnswer('q6', 2)">C. Medulla oblongata</div>
+                                <div class="quiz-option" onclick="selectAnswer('q6', 3)">D. Hypothalamus</div>
+                            </div>
+                            <button class="btn" onclick="checkAnswer('q6', 2)">Check Answer</button>
+                            <div class="quiz-result" id="q6-result"></div>
+                        </div>
+
+                        <!-- Question 7 -->
+                        <div class="quiz-question">
+                            <h4>7. Which condition is characterized by irreversible destruction of alveolar walls?</h4>
+                            <div class="quiz-options" id="q7-options">
+                                <div class="quiz-option" onclick="selectAnswer('q7', 0)">A. Asthma</div>
+                                <div class="quiz-option" onclick="selectAnswer('q7', 1)">B. Chronic bronchitis</div>
+                                <div class="quiz-option" onclick="selectAnswer('q7', 2)">C. Emphysema</div>
+                                <div class="quiz-option" onclick="selectAnswer('q7', 3)">D. Pneumonia</div>
+                            </div>
+                            <button class="btn" onclick="checkAnswer('q7', 2)">Check Answer</button>
+                            <div class="quiz-result" id="q7-result"></div>
+                        </div>
+
+                        <!-- Question 8 -->
+                        <div class="quiz-question">
+                            <h4>8. What effect does increased temperature have on the oxyhemoglobin dissociation curve?</h4>
+                            <div class="quiz-options" id="q8-options">
+                                <div class="quiz-option" onclick="selectAnswer('q8', 0)">A. Shifts left (increased O₂ affinity)</div>
+                                <div class="quiz-option" onclick="selectAnswer('q8', 1)">B. Shifts right (decreased O₂ affinity)</div>
+                                <div class="quiz-option" onclick="selectAnswer('q8', 2)">C. No change</div>
+                                <div class="quiz-option" onclick="selectAnswer('q8', 3)">D. Curve inverts</div>
+                            </div>
+                            <button class="btn" onclick="checkAnswer('q8', 1)">Check Answer</button>
+                            <div class="quiz-result" id="q8-result"></div>
+                        </div>
+
+                        <!-- Question 9 -->
+                        <div class="quiz-question">
+                            <h4>9. The carina is the point where the trachea divides into what structures?</h4>
+                            <div class="quiz-options" id="q9-options">
+                                <div class="quiz-option" onclick="selectAnswer('q9', 0)">A. Bronchioles</div>
+                                <div class="quiz-option" onclick="selectAnswer('q9', 1)">B. Primary bronchi</div>
+                                <div class="quiz-option" onclick="selectAnswer('q9', 2)">C. Secondary bronchi</div>
+                                <div class="quiz-option" onclick="selectAnswer('q9', 3)">D. Alveolar ducts</div>
+                            </div>
+                            <button class="btn" onclick="checkAnswer('q9', 1)">Check Answer</button>
+                            <div class="quiz-result" id="q9-result"></div>
+                        </div>
+
+                        <!-- Question 10 -->
+                        <div class="quiz-question">
+                            <h4>10. What is the primary stimulus for breathing in healthy individuals?</h4>
+                            <div class="quiz-options" id="q10-options">
+                                <div class="quiz-option" onclick="selectAnswer('q10', 0)">A. Low oxygen levels (hypoxia)</div>
+                                <div class="quiz-option" onclick="selectAnswer('q10', 1)">B. High carbon dioxide levels (hypercapnia)</div>
+                                <div class="quiz-option" onclick="selectAnswer('q10', 2)">C. Low pH (acidosis)</div>
+                                <div class="quiz-option" onclick="selectAnswer('q10', 3)">D. Stretch receptors in lungs</div>
+                            </div>
+                            <button class="btn" onclick="checkAnswer('q10', 1)">Check Answer</button>
+                            <div class="quiz-result" id="q10-result"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let selectedAnswers = {};
+
+        function showTab(tabName) {
+            // Hide all tabs
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            // Remove active class from all nav tabs
+            const navTabs = document.querySelectorAll('.nav-tab');
+            navTabs.forEach(tab => tab.classList.remove('active'));
+
+            // Show selected tab
+            document.getElementById(tabName).classList.add('active');
+
+            // Add active class to clicked nav tab
+            event.target.classList.add('active');
+        }
+
+        function selectAnswer(questionId, optionIndex) {
+            // Remove selected class from all options
+            const options = document.querySelectorAll(`#${questionId}-options .quiz-option`);
+            options.forEach(option => {
+                option.classList.remove('selected');
+                option.classList.remove('correct');
+                option.classList.remove('incorrect');
+            });
+
+            // Add selected class to chosen option
+            options[optionIndex].classList.add('selected');
+            selectedAnswers[questionId] = optionIndex;
+
+            // Hide result
+            document.getElementById(`${questionId}-result`).classList.remove('show');
+        }
+
+        function checkAnswer(questionId, correctIndex) {
+            const result = document.getElementById(`${questionId}-result`);
+            const options = document.querySelectorAll(`#${questionId}-options .quiz-option`);
+            const selectedIndex = selectedAnswers[questionId];
+
+            if (selectedIndex === undefined) {
+                result.textContent = 'Please select an answer first!';
+                result.className = 'quiz-result show incorrect';
+                return;
+            }
+
+            // Show correct answer
+            options[correctIndex].classList.add('correct');
+
+            if (selectedIndex === correctIndex) {
+                result.textContent = '✓ Correct! Well done!';
+                result.className = 'quiz-result show correct';
+            } else {
+                options[selectedIndex].classList.add('incorrect');
+                result.textContent = '✗ Incorrect. The correct answer is highlighted in green.';
+                result.className = 'quiz-result show incorrect';
+            }
+        }
+    </script>
+</body>
+</html>
