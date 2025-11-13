@@ -1,5 +1,5 @@
 # Sylcroad Main .htaccess
-# Handles React app and API routing
+# Handles React app, Tracker, and API routing
 
 # Enable Rewrite Engine
 RewriteEngine On
@@ -16,6 +16,11 @@ SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1
 RewriteCond %{REQUEST_URI} ^/api/
 RewriteRule ^api/(.*)$ api/$1 [L]
 
+# Tracker Dashboard - Clean URL (must come before React catch-all)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^tracker$ tracker.html [L]
+
 # React App - Serve index.html for all non-file requests
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
@@ -27,3 +32,14 @@ Options -Indexes
 
 # Security: Protect .git directory
 RedirectMatch 404 /\.git
+
+# Security: Protect sensitive files
+<Files "config.json">
+    Order allow,deny
+    Deny from all
+</Files>
+
+<Files "deployment.log">
+    Order allow,deny
+    Deny from all
+</Files>
