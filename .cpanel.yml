@@ -7,6 +7,7 @@ deployment:
     
     # Copy main files
     - /bin/cp -f index.html $DEPLOYPATH
+    - /bin/cp -f login.html $DEPLOYPATH
     - /bin/cp -f index.php $DEPLOYPATH
     - /bin/cp -f asset-manifest.json $DEPLOYPATH
     - /bin/cp -f vue.global.js $DEPLOYPATH
