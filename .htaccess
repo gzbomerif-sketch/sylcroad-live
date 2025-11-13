@@ -1,0 +1,22 @@
+# Security - Protect sensitive files
+<Files "config.json">
+    Order allow,deny
+    Deny from all
+</Files>
+
+<Files "deployment.log">
+    Order allow,deny
+    Deny from all
+</Files>
+
+# Clean URL Rewriting
+RewriteEngine On
+
+# Redirect tracker to tracker.html (clean URLs)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^tracker$ tracker.html [L]
+
+# Prevent direct access to .git directory if it exists
+RedirectMatch 404 /\.git
+
