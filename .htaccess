@@ -16,10 +16,15 @@ SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1
 RewriteCond %{REQUEST_URI} ^/api/
 RewriteRule ^api/(.*)$ api/$1 [L]
 
-# Tracker Dashboard - Clean URL (must come before React catch-all)
+# Tracker Dashboard - Clean URLs (must come before React catch-all)
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^tracker$ tracker.html [L]
+
+# Dashboard - Route to tracker interface
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^dashboard$ tracker.html [L]
 
 # React App - Serve index.html for all non-file requests
 RewriteCond %{REQUEST_FILENAME} !-f
