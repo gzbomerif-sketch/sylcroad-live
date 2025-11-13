@@ -18,8 +18,8 @@
         }
 
         :root {
-            --primary-green: #4cd137;
-            --primary-green-dark: #3bb528;
+            --primary-blue: #60a5fa;
+            --primary-blue-dark: #3b82f6;
             --background: #ffffff;
             --text-primary: #1a1a1a;
             --text-secondary: #6b7280;
@@ -69,10 +69,7 @@
         .logo-text {
             font-size: 32px;
             font-weight: 700;
-            background: linear-gradient(135deg, var(--primary-green) 0%, #2ecc71 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--text-primary);
         }
 
         .welcome-text {
@@ -115,8 +112,8 @@
 
         input:focus {
             outline: none;
-            border-color: var(--primary-green);
-            box-shadow: 0 0 0 3px rgba(76, 209, 55, 0.1);
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.1);
         }
 
         input::placeholder {
@@ -140,15 +137,15 @@
         }
 
         .btn-primary {
-            background: var(--primary-green);
+            background: var(--primary-blue);
             color: white;
             margin-bottom: 12px;
         }
 
         .btn-primary:hover {
-            background: var(--primary-green-dark);
+            background: var(--primary-blue-dark);
             transform: translateY(-1px);
-            box-shadow: 0 10px 20px rgba(76, 209, 55, 0.3);
+            box-shadow: 0 10px 20px rgba(96, 165, 250, 0.3);
         }
 
         .btn-primary:active {
@@ -230,7 +227,7 @@
         }
 
         .footer-links a:hover {
-            color: var(--primary-green);
+            color: var(--primary-blue);
         }
 
         .spinner {
@@ -251,10 +248,10 @@
             top: 0;
             left: 0;
             height: 3px;
-            background: var(--primary-green);
+            background: var(--primary-blue);
             transition: width 0.3s ease;
             z-index: 9999;
-            box-shadow: 0 0 10px var(--primary-green), 0 0 5px var(--primary-green);
+            box-shadow: 0 0 10px var(--primary-blue), 0 0 5px var(--primary-blue);
         }
 
         @media (max-width: 480px) {
