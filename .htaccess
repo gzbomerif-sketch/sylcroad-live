@@ -1,0 +1,29 @@
+# Sylcroad Main .htaccess
+# Handles React app and API routing
+
+# Enable Rewrite Engine
+RewriteEngine On
+
+# CORS Headers for entire site
+Header always set Access-Control-Allow-Origin "*"
+Header always set Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
+Header always set Access-Control-Allow-Headers "Content-Type, Authorization"
+
+# Allow authorization header
+SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1
+
+# API Routes - Forward to /api directory
+RewriteCond %{REQUEST_URI} ^/api/
+RewriteRule ^api/(.*)$ api/$1 [L]
+
+# React App - Serve index.html for all non-file requests
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !^/api/
+RewriteRule ^(.*)$ index.html [L]
+
+# Security: Prevent directory listing
+Options -Indexes
+
+# Security: Protect .git directory
+RedirectMatch 404 /\.git

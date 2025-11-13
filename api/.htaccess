@@ -1,0 +1,29 @@
+# API .htaccess Configuration
+# Enables clean URLs and proper routing for API endpoints
+
+# Enable Rewrite Engine
+RewriteEngine On
+
+# CORS Headers
+Header always set Access-Control-Allow-Origin "*"
+Header always set Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
+Header always set Access-Control-Allow-Headers "Content-Type, Authorization"
+
+# Handle preflight OPTIONS requests
+RewriteCond %{REQUEST_METHOD} OPTIONS
+RewriteRule ^(.*)$ $1 [R=200,L]
+
+# Allow authorization header
+SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1
+
+# Redirect to PHP files
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^auth/login$ auth/login.php [L]
+RewriteRule ^auth/me$ auth/me.php [L]
+
+# Deny access to config.php directly
+<Files "config.php">
+    Order Allow,Deny
+    Deny from all
+</Files>
