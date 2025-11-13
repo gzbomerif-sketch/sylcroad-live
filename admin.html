@@ -1418,9 +1418,9 @@
             document.getElementById('clientPassword').value = campaign.clientPassword;
             document.getElementById('clientName').value = campaign.clientName || '';
 
-            uploadedLogo = campaign.logo;
+            uploadedLogo = campaign.logo || null;
+            const preview = document.getElementById('logoPreview');
             if (campaign.logo) {
-                const preview = document.getElementById('logoPreview');
                 preview.innerHTML = `
                     <div class="file-preview">
                         <img src="${campaign.logo}" class="file-preview-img" alt="Logo preview">
@@ -1430,6 +1430,9 @@
                     </div>
                 `;
                 preview.style.display = 'block';
+            } else {
+                preview.innerHTML = '';
+                preview.style.display = 'none';
             }
 
             document.getElementById('campaignModal').classList.add('active');
